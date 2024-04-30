@@ -4,14 +4,31 @@ public class Veiculo {
     public int ano;
     public int velocidadeMaxima;
     public int velocidadeAtual;
+    public boolean power;
 
-    public void acelerar() {
-        velocidadeAtual++;
+    public void ligar(boolean ligar) {
+        if (ligar){
+            System.out.println("ligado.");
+        } else {
+            System.out.println("desligado.");
+        }
+        this.power = ligar;
     }
 
+    public void acelerar(int incremento) {
+        if (power){
+            this.velocidadeAtual += incremento;
+        } else {
+            System.out.println("Ligue o carro primeiro!.");
+        }
+    }
 
-    public void reduzirVelocidade() {
-        velocidadeAtual--;
+    public void reduzirVelocidade(int decremento) {
+        if (power){
+            this.velocidadeAtual -= decremento;
+        } else {
+            System.out.println("Ligue o carro primeiro!.");
+        }
     }
 
     public void obterStatus() {
