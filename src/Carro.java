@@ -1,30 +1,29 @@
-    class Carro extends Veiculo {
-    private int velocidadeMaxima;
+public class Carro extends Veiculo {
     private boolean arCondicionado;
 
-    public void ligarCarro() {
-        ligar(true); // Ligar o carro (seta power como true)
-    }
-
-    public void desligarCarro() {
-        ligar(false); // Desligar o carro (seta power como false)
-    }
-
-    public void ligarArCondicionad(){
-        if (power){
+    public void ligarArCondicionado() {
+        if (power) {
             arCondicionado = true;
-            System.out.println("Ar ligado!");
+            System.out.println("Ar condicionado ligado!");
         } else {
-            System.out.println("O carro precisa estár ligado!.");
+            System.out.println("O carro precisa estar ligado para ligar o ar condicionado.");
         }
     }
 
-    public void desligarArCondicionado(){
-        arCondicionado = false;
-        System.out.println("O ar foi desligado!.");
+    public void desligarArCondicionado() {
+        if (!arCondicionado) {
+            System.out.println("O ar condicionado já está desligado!");
+        } else {
+            arCondicionado = false;
+            System.out.println("O ar condicionado foi desligado.");
+        }
     }
 
-    public void setVelocidadeMaxima(int velocidadeMaxima ) {
-        this.velocidadeMaxima = velocidadeMaxima;
+    public void setVelocidadeMaxima(int velocidadeMaxima) {
+        if (velocidadeMaxima < 0) {
+            System.out.println("Valor inválido para velocidade máxima.");
+        } else {
+            this.velocidadeMaxima = velocidadeMaxima;
+        }
     }
 }
